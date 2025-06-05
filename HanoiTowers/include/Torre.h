@@ -1,3 +1,6 @@
+#ifndef TORRE_H
+#define TORRE_H
+
 #include "Disco.h"
 #include <memory>
 #include <vector>
@@ -22,7 +25,7 @@ class Torre{
     pNodo top;
     int nNodos = 0;
     int numeroTorre;
-    vector<int> numerosUsados;
+    static vector<int> numerosUsados;
 
     public:
     Torre(int);
@@ -33,5 +36,10 @@ class Torre{
     bool empty() const;
     void print() const;
     int size() const;
+    // void print() const;
+    int getNumTorre() const;
+    vector<int> getDiscos() const;
 
 };
+
+#endif

@@ -21,7 +21,7 @@ void Torre::push(pDisco d)
 {
     if (top == nullptr)
         top = make_shared<Nodo>(d);
-    return;
+        return;
     auto it = top;
     while (it->siguiente != nullptr)
     {
@@ -45,11 +45,11 @@ bool Torre::empty() const
 {
     if (top)
     {
-        return true;
+        return false;
     }
     else
     {
-        return false;
+        return true;
     };
 };
 void Torre::print() const
@@ -60,9 +60,33 @@ void Torre::print() const
     while (it!=nullptr)
     {
         cout << "Disco " << i++ << " con tamaño " << it->disco->getTamaño() << endl;
+        it = it->siguiente;
     }
 };
 
 int Torre::size()const{
     return nNodos;
+}
+
+/* void Torre::print() const
+{
+    auto it = top;
+    while(it){
+        it->disco->print();
+        it = it->siguiente;
+    }
+} */
+
+int Torre::getNumTorre() const
+{
+    return numeroTorre;
+}
+
+vector<int> Torre::getDiscos() const{
+    vector<int> aux;
+    auto it = top;
+    while(it){
+        aux.push_back(it->disco->getTamaño());
+    }
+    return aux;
 }
