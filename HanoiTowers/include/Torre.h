@@ -32,7 +32,7 @@ class Torre{
     ~Torre();
     void push(pDisco d);
     pDisco pop();
-    pDisco peek() const;
+    pDisco peek() const; //Devuelve puntero a disco superior
     bool empty() const;
     void print() const;
     int size() const;

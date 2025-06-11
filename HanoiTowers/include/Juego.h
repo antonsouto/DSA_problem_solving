@@ -16,7 +16,7 @@ class Juego {
     private:
     torres misTorres;
     int numDiscos;
-    int movimientos = 0;
+    int movimientosCounter = 0;
     estado estadoActual;
 
     public:
@@ -24,7 +24,7 @@ class Juego {
     Juego(); // Inicializa 3 discos (Juego clasico)
     ~Juego();
     bool moverDisco(Torre&, Torre&);
-    bool esMovimientoValido(Torre&, Torre&) const;
+    bool esMovimientoValido(Torre const&, Torre const&) const;
     bool juegoTerminado() const;
     void imprimirEstado() const;
     void actualizarEstado();
@@ -34,6 +34,6 @@ class Juego {
     void reiniciar();
 
     //Metodo de prevision para Raylib
-    void getEstado();
+    estado const& getEstado()const;
 
 };

@@ -19,17 +19,11 @@ Torre::~Torre(){
 
 void Torre::push(pDisco d)
 {
-    if (top == nullptr)
-        top = make_shared<Nodo>(d);
-        return;
-    auto it = top;
-    while (it->siguiente != nullptr)
-    {
-        it = it->siguiente;
-    }
-    it->siguiente = make_shared<Nodo>(d);
+    pNodo nuevoTop = make_shared<Nodo>(d, top);
+    top = nuevoTop;
     nNodos++;
 }
+
 pDisco Torre::pop()
 {
     auto it = top;
@@ -59,7 +53,7 @@ void Torre::print() const
     cout << "La torre numero " << numeroTorre << " contiene los discos: " << endl;
     while (it!=nullptr)
     {
-        cout << "Disco " << i++ << " con tamaño " << it->disco->getTamaño() << endl;
+        cout << "   - Disco " << i++ << " con tamaño " << it->disco->getTamaño() << endl;
         it = it->siguiente;
     }
 };
