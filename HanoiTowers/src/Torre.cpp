@@ -1,6 +1,11 @@
 #include "Torre.h"
 #include <iostream>
 
+
+// Definición de variables estáticas, norma de C++
+vector<int> Torre::numerosUsados; // define la variable estática
+
+
 Torre::Torre(int numero)
 {
     for (auto n : numerosUsados)
@@ -26,10 +31,16 @@ void Torre::push(pDisco d)
 
 pDisco Torre::pop()
 {
-    auto it = top;
-    top = it->siguiente;
-    nNodos--;
-    return it->disco;
+    if (top)
+    {
+
+        auto it = top;
+        top = it->siguiente;
+        nNodos--;
+        return it->disco;
+    }else{
+        return nullptr;
+    }
 }
 pDisco Torre::peek() const
 {

@@ -13,6 +13,8 @@ int main()
 
     Juego mijuego(ndiscos);
 
+    cout << "[DEBUG] Juego creado correctamente con " << ndiscos << " discos." << endl;
+
     while (!mijuego.juegoTerminado())
     {
         int id_origen = 0, id_destino = 0;
@@ -44,8 +46,8 @@ int main()
             break;
         }
 
-        Torre &origen = mijuego.getTorre(id_origen - 1);
-        Torre &destino = mijuego.getTorre(id_destino - 1);
+        Torre &origen = mijuego.getTorre(id_origen);
+        Torre &destino = mijuego.getTorre(id_destino);
 
         // Movimiento
         if (!mijuego.moverDisco(origen, destino))

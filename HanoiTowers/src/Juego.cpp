@@ -104,6 +104,15 @@ void Juego::reiniciar(){
 }
 
 
-Torre& Juego::getTorre(int id) const{
-    return *misTorres[id-1];
+Torre& Juego::getTorre(int id) const {
+    if (id < 1 || id > 3) {
+        throw std::out_of_range("El identificador de torre debe estar entre 1 y 3.");
+    }
+
+    auto ptr = misTorres[id - 1];
+    if (!ptr) {
+        throw std::runtime_error("La torre solicitada no está inicializada.");
+    }
+
+    return *ptr;
 }

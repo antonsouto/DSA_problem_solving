@@ -4,8 +4,10 @@
 
 using namespace std;
 
-
+// Definición de variables estáticas, norma de C++
 int Disco::count = 0;
+vector<int> Disco::tamañosUsados; // define la variable estática
+
 
 Disco::Disco(){
         
