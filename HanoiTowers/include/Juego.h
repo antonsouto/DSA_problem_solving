@@ -28,9 +28,10 @@ class Juego {
     bool juegoTerminado() const;
     void imprimirEstado() const;
     void actualizarEstado();
+    int getNMovimientos(){return movimientosCounter;}
 
     //Métodos auxiliares para funcionalidades especiales
-    const Torre& getTorre(int index) const;
+    Torre& getTorre(int index) const;
     void reiniciar();
 
     //Metodo de prevision para Raylib

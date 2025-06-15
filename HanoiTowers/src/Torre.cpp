@@ -81,6 +81,7 @@ vector<int> Torre::getDiscos() const{
     auto it = top;
     while(it){
         aux.push_back(it->disco->getTamaño());
+        it = it->siguiente;
     }
     return aux;
 }

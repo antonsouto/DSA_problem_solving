@@ -7,7 +7,7 @@ Juego::Juego(int Ndiscos)
     numDiscos = Ndiscos;
     for (int i = 0; i < 3; i++)
     {
-        misTorres[i] = make_shared<Torre>(i + 1);
+        misTorres[i] = make_shared<Torre>(i + 1); //Torre 1 ocupa la posicion 0 en el array de torres de mi juego
     }
 
     vector<shared_ptr<Disco>> discos;
@@ -17,7 +17,7 @@ Juego::Juego(int Ndiscos)
     }
     for (int i = Ndiscos; i > 0; i--)
     {
-        misTorres[0]->push(discos[i]);
+        misTorres[0]->push(discos[i-1]);
     }
     // Tengo que inicializar este atributo para poder visualizar
 
@@ -101,4 +101,9 @@ void Juego::reiniciar(){
     // Tengo que inicializar este atributo para poder visualizar
 
     actualizarEstado();
+}
+
+
+Torre& Juego::getTorre(int id) const{
+    return *misTorres[id-1];
 }
